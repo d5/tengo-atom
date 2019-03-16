@@ -48,20 +48,6 @@
     ]
   }
   {
-    'comment': 'Syntax error receiving channels'
-    'match': '<\\-([\\t ]+)chan\\b'
-    'captures':
-      '1':
-        'name': 'invalid.illegal.receive-channel.tengo'
-  }
-  {
-    'comment': 'Syntax error sending channels'
-    'match': '\\bchan([\\t ]+)<\-'
-    'captures':
-      '1':
-        'name': 'invalid.illegal.send-channel.tengo'
-  }
-  {
     'comment': 'Syntax error using slices'
     'match': '\\[\\](\\s+)'
     'captures':
@@ -75,7 +61,7 @@
   }
   {
     'comment': 'Built-in functions'
-    'match': '\\b(append|cap|close|complex|copy|delete|imag|len|make|new|panic|print|println|real|recover)\\b(?=\\()'
+    'match': '\\b(print|printf|sprintf|len|copy|append|string|int|bool|float|char|bytes|time|is_int|is_float|is_string|is_bool|is_char|is_bytes|is_array|is_map|is_immutable_array|is_immutable_map|is_time|is_error|is_undefined|is_function|is_callable|to_json|from_json|type_name)\\b(?=\\()'
     'name': 'support.function.builtin.tengo'
   }
   {
@@ -135,72 +121,8 @@
   }
   {
     'comment': 'Language constants'
-    'match': '\\b(true|false|nil|iota)\\b'
+    'match': '\\b(true|false|undefined)\\b'
     'name': 'constant.language.tengo'
-  }
-  {
-    # Package declarations
-    # Using a begin/end here allows us to match the package keyword before the package name is typed
-    'begin': '\\b(package)\\s+'
-    'beginCaptures':
-      '1':
-        'name': 'keyword.package.tengo'
-    'end': '(?!\\G)'
-    'patterns': [
-      {
-        'match': '\\d\\w*'
-        'name': 'invalid.illegal.identifier.tengo'
-      }
-      {
-        'match': '\\w+'
-        'name': 'entity.name.package.tengo'
-      }
-    ]
-  }
-  {
-    # Type declarations
-    # Using a begin/end here allows us to match the type keyword before the type name is typed
-    'begin': '\\b(type)\\s+'
-    'beginCaptures':
-      '1':
-        'name': 'keyword.type.tengo'
-    'end': '(?!\\G)'
-    'patterns': [
-      {
-        'match': '\\d\\w*'
-        'name': 'invalid.illegal.identifier.tengo'
-      }
-      {
-        'match': '\\w+'
-        'name': 'entity.name.type.tengo'
-      }
-    ]
-  }
-  {
-    # Imports
-    'begin': '\\b(import)\\s+'
-    'beginCaptures':
-      '1':
-        'name': 'keyword.import.tengo'
-    'end': '(?!\\G)'
-    'patterns': [
-      {
-        'include': '#imports'
-      }
-    ]
-  }
-  {
-    # Variables
-    'begin': '\\b(var)\\s+'
-    'beginCaptures':
-      '1':
-        'name': 'keyword.var.tengo'
-    'end': '(?!\\G)'
-    'patterns': [
-      {
-        'include': '#variables'
-      }
-    ]
   }
   {
     # Assignments to existing variables
@@ -271,9 +193,6 @@
   }
   {
     'include': '#runes'
-  }
-  {
-    'include': '#storage_types'
   }
 ]
 'repository':
@@ -348,86 +267,26 @@
         'name': 'punctuation.other.colon.tengo'
       }
     ]
-  'imports':
-    'patterns': [
-      {
-        # Single line import declarations
-        'match': '((?!\\s+")[^\\s]*)?\\s*((")([^"]*)("))'
-        'captures':
-          '1':
-            'name': 'entity.alias.import.tengo'
-          '2':
-            'name': 'string.quoted.double.tengo'
-          '3':
-            'name': 'punctuation.definition.string.begin.tengo'
-          '4':
-            'name': 'entity.name.import.tengo'
-          '5':
-            'name': 'punctuation.definition.string.end.tengo'
-      }
-      {
-        # Multiline import declarations
-        'begin': '\\('
-        'beginCaptures':
-          '0':
-            'name': 'punctuation.definition.imports.begin.bracket.round.tengo'
-        'end': '\\)'
-        'endCaptures':
-          '0':
-            'name': 'punctuation.definition.imports.end.bracket.round.tengo'
-        'patterns': [
-          {
-            'include': '#comments'
-          }
-          {
-            'include': '#imports'
-          }
-        ]
-      }
-    ]
   'keywords':
     'patterns': [
       {
-        'comment': 'Flow control keywords'
-        'match': '\\b(break|case|continue|default|defer|else|fallthrough|for|go|goto|if|range|return|select|switch)\\b'
+        'comment': 'Tengo control keywords'
+        'match': '\\b(break|continue|else|for|if|return|in)\\b'
         'name': 'keyword.control.tengo'
       }
       {
-        'match': '\\bchan\\b'
-        'name': 'keyword.channel.tengo'
-      }
-      {
-        'match': '\\bconst\\b'
-        'name': 'keyword.const.tengo'
+         'comment': 'Other Tengo keywords'
+         'match': '\\b(export|import|error|immutable)\\b'
+         'name': 'keyword.other.tengo'
       }
       {
         'match': '\\bfunc\\b'
         'name': 'keyword.function.tengo'
       }
-      {
-        'match': '\\binterface\\b'
-        'name': 'keyword.interface.tengo'
-      }
-      {
-        'match': '\\bmap\\b'
-        'name': 'keyword.map.tengo'
-      }
-      {
-        'match': '\\bstruct\\b'
-        'name': 'keyword.struct.tengo'
-      }
     ]
   'operators':
     'comment': 'Note that the order here is very important!'
     'patterns': [
-      {
-        'match': '(\\*|&)(?=\\w)'
-        'name': 'keyword.operator.address.tengo'
-      }
-      {
-        'match': '<\\-'
-        'name': 'keyword.operator.channel.tengo'
-      }
       {
         'match': '\\-\\-'
         'name': 'keyword.operator.decrement.tengo'
@@ -456,10 +315,6 @@
         'match': '(&(?!\\^)|\\||\\^|&\\^|<<|>>)'
         'name': 'keyword.operator.arithmetic.bitwise.tengo'
       }
-      {
-        'match': '\\.\\.\\.'
-        'name': 'keyword.operator.ellipsis.tengo'
-      }
     ]
   'runes':
     'patterns': [
@@ -483,37 +338,6 @@
             'name': 'invalid.illegal.unknown-rune.tengo'
           }
         ]
-      }
-    ]
-  'storage_types':
-    'patterns': [
-      {
-        'match': '\\bbool\\b'
-        'name': 'storage.type.boolean.tengo'
-      }
-      {
-        'match': '\\bbyte\\b'
-        'name': 'storage.type.byte.tengo'
-      }
-      {
-        'match': '\\berror\\b'
-        'name': 'storage.type.error.tengo'
-      }
-      {
-        'match': '\\b(complex(64|128)|float(32|64)|u?int(8|16|32|64)?)\\b'
-        'name': 'storage.type.numeric.tengo'
-      }
-      {
-        'match': '\\brune\\b'
-        'name': 'storage.type.rune.tengo'
-      }
-      {
-        'match': '\\bstring\\b'
-        'name': 'storage.type.string.tengo'
-      }
-      {
-        'match': '\\buintptr\\b'
-        'name': 'storage.type.uintptr.tengo'
       }
     ]
   'string_escaped_char':
