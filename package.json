@@ -1,0 +1,17 @@
+{
+  "name": "language-tengo",
+  "description": "Tengo language support in Atom",
+  "version": "0.1.0",
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "homepage": "https://tengolang.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d5/tengo-atom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/d5/tengo-atom/issues"
+  }
+}
