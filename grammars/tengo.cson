@@ -1,8 +1,8 @@
-'scopeName': 'source.go'
-'name': 'Go'
-'comment': 'Go language'
+'scopeName': 'source.tengo'
+'name': 'Tengo'
+'comment': 'Tengo language'
 'fileTypes': [
-  'go'
+  'tengo'
 ]
 'foldingStartMarker': '({|\\()\\s*$'
 'foldingStopMarker': '(}|\\))\\s*$'
@@ -15,12 +15,12 @@
     'begin': '"'
     'beginCaptures':
       '0':
-        'name': 'punctuation.definition.string.begin.go'
+        'name': 'punctuation.definition.string.begin.tengo'
     'end': '"'
     'endCaptures':
       '0':
-        'name': 'punctuation.definition.string.end.go'
-    'name': 'string.quoted.double.go'
+        'name': 'punctuation.definition.string.end.tengo'
+    'name': 'string.quoted.double.tengo'
     'patterns': [
       {
         'include': '#string_escaped_char'
@@ -35,12 +35,12 @@
     'begin': '`'
     'beginCaptures':
       '0':
-        'name': 'punctuation.definition.string.begin.go'
+        'name': 'punctuation.definition.string.begin.tengo'
     'end': '`'
     'endCaptures':
       '0':
-        'name': 'punctuation.definition.string.end.go'
-    'name': 'string.quoted.raw.go',
+        'name': 'punctuation.definition.string.end.tengo'
+    'name': 'string.quoted.raw.tengo',
     'patterns': [
       {
         'include': '#string_placeholder'
@@ -52,38 +52,38 @@
     'match': '<\\-([\\t ]+)chan\\b'
     'captures':
       '1':
-        'name': 'invalid.illegal.receive-channel.go'
+        'name': 'invalid.illegal.receive-channel.tengo'
   }
   {
     'comment': 'Syntax error sending channels'
     'match': '\\bchan([\\t ]+)<\-'
     'captures':
       '1':
-        'name': 'invalid.illegal.send-channel.go'
+        'name': 'invalid.illegal.send-channel.tengo'
   }
   {
     'comment': 'Syntax error using slices'
     'match': '\\[\\](\\s+)'
     'captures':
       '1':
-        'name': 'invalid.illegal.slice.go'
+        'name': 'invalid.illegal.slice.tengo'
   }
   {
     'comment': 'Syntax error numeric literals'
     'match': '\\b0[0-7]*[89]\\d*\\b'
-    'name': 'invalid.illegal.numeric.go'
+    'name': 'invalid.illegal.numeric.tengo'
   }
   {
     'comment': 'Built-in functions'
     'match': '\\b(append|cap|close|complex|copy|delete|imag|len|make|new|panic|print|println|real|recover)\\b(?=\\()'
-    'name': 'support.function.builtin.go'
+    'name': 'support.function.builtin.tengo'
   }
   {
     'comment': 'Function declarations'
     'match': '^(\\bfunc\\b)(?:\\s+(\\([^\\)]+\\)\\s+)?(\\w+)(?=\\())?'
     'captures':
       '1':
-        'name': 'keyword.function.go'
+        'name': 'keyword.function.tengo'
       '2':
         'patterns': [
           {
@@ -97,11 +97,11 @@
         'patterns': [
           {
             'match': '\\d\\w*'
-            'name': 'invalid.illegal.identifier.go'
+            'name': 'invalid.illegal.identifier.tengo'
           }
           {
             'match': '\\w+'
-            'name': 'entity.name.function.go'
+            'name': 'entity.name.function.tengo'
           }
         ]
   }
@@ -110,33 +110,33 @@
     'match': '(\\bfunc\\b)|(\\w+)(?=\\()'
     'captures':
       '1':
-        'name': 'keyword.function.go'
+        'name': 'keyword.function.tengo'
       '2':
         'patterns': [
           {
             'match': '\\d\\w*'
-            'name': 'invalid.illegal.identifier.go'
+            'name': 'invalid.illegal.identifier.tengo'
           }
           {
             'match': '\\w+'
-            'name': 'support.function.go'
+            'name': 'support.function.tengo'
           }
         ]
   }
   {
     'comment': 'Floating-point literals'
     'match': '(\\.\\d+([Ee][\-\+]\\d+)?i?)\\b|\\b\\d+\\.\\d*(([Ee][\-\+]\\d+)?i?\\b)?'
-    'name': 'constant.numeric.floating-point.go'
+    'name': 'constant.numeric.floating-point.tengo'
   }
   {
     'comment': 'Integers'
     'match': '\\b((0x[0-9a-fA-F]+)|(0[0-7]+i?)|(\\d+([Ee]\\d+)?i?)|(\\d+[Ee][\-\+]\\d+i?))\\b'
-    'name': 'constant.numeric.integer.go'
+    'name': 'constant.numeric.integer.tengo'
   }
   {
     'comment': 'Language constants'
     'match': '\\b(true|false|nil|iota)\\b'
-    'name': 'constant.language.go'
+    'name': 'constant.language.tengo'
   }
   {
     # Package declarations
@@ -144,16 +144,16 @@
     'begin': '\\b(package)\\s+'
     'beginCaptures':
       '1':
-        'name': 'keyword.package.go'
+        'name': 'keyword.package.tengo'
     'end': '(?!\\G)'
     'patterns': [
       {
         'match': '\\d\\w*'
-        'name': 'invalid.illegal.identifier.go'
+        'name': 'invalid.illegal.identifier.tengo'
       }
       {
         'match': '\\w+'
-        'name': 'entity.name.package.go'
+        'name': 'entity.name.package.tengo'
       }
     ]
   }
@@ -163,16 +163,16 @@
     'begin': '\\b(type)\\s+'
     'beginCaptures':
       '1':
-        'name': 'keyword.type.go'
+        'name': 'keyword.type.tengo'
     'end': '(?!\\G)'
     'patterns': [
       {
         'match': '\\d\\w*'
-        'name': 'invalid.illegal.identifier.go'
+        'name': 'invalid.illegal.identifier.tengo'
       }
       {
         'match': '\\w+'
-        'name': 'entity.name.type.go'
+        'name': 'entity.name.type.tengo'
       }
     ]
   }
@@ -181,7 +181,7 @@
     'begin': '\\b(import)\\s+'
     'beginCaptures':
       '1':
-        'name': 'keyword.import.go'
+        'name': 'keyword.import.tengo'
     'end': '(?!\\G)'
     'patterns': [
       {
@@ -194,7 +194,7 @@
     'begin': '\\b(var)\\s+'
     'beginCaptures':
       '1':
-        'name': 'keyword.var.go'
+        'name': 'keyword.var.tengo'
     'end': '(?!\\G)'
     'patterns': [
       {
@@ -213,11 +213,11 @@
         'patterns': [
           {
             'match': '\\d\\w*'
-            'name': 'invalid.illegal.identifier.go'
+            'name': 'invalid.illegal.identifier.tengo'
           }
           {
             'match': '\\w+(?:\\.\\w+)*'
-            'name': 'variable.other.assignment.go'
+            'name': 'variable.other.assignment.tengo'
             'captures':
               '0':
                 'patterns': [
@@ -241,11 +241,11 @@
         'patterns': [
           {
             'match': '\\d\\w*'
-            'name': 'invalid.illegal.identifier.go'
+            'name': 'invalid.illegal.identifier.tengo'
           }
           {
             'match': '\\w+'
-            'name': 'variable.other.assignment.go'
+            'name': 'variable.other.assignment.tengo'
           }
           {
             'include': '#delimiters'
@@ -255,7 +255,7 @@
   {
     'comment': 'Terminators'
     'match': ';'
-    'name': 'punctuation.terminator.go'
+    'name': 'punctuation.terminator.tengo'
   }
   {
     'include': '#brackets'
@@ -283,11 +283,11 @@
         'begin': '{'
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.begin.bracket.curly.go'
+            'name': 'punctuation.definition.begin.bracket.curly.tengo'
         'end': '}'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.end.bracket.curly.go'
+            'name': 'punctuation.definition.end.bracket.curly.tengo'
         'patterns': [
           {
             'include': '$self'
@@ -298,11 +298,11 @@
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.begin.bracket.round.go'
+            'name': 'punctuation.definition.begin.bracket.round.tengo'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.end.bracket.round.go'
+            'name': 'punctuation.definition.end.bracket.round.tengo'
         'patterns': [
           {
             'include': '$self'
@@ -311,7 +311,7 @@
       }
       {
         'match': '\\[|\\]'
-        'name': 'punctuation.definition.bracket.square.go'
+        'name': 'punctuation.definition.bracket.square.tengo'
       }
     ]
   'comments':
@@ -321,31 +321,31 @@
         'end': '\\*/'
         'captures':
           '0':
-            'name': 'punctuation.definition.comment.go'
-        'name': 'comment.block.go'
+            'name': 'punctuation.definition.comment.tengo'
+        'name': 'comment.block.tengo'
       }
       {
         'begin': '//'
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.comment.go'
+            'name': 'punctuation.definition.comment.tengo'
         'end': '$'
-        'name': 'comment.line.double-slash.go'
+        'name': 'comment.line.double-slash.tengo'
       }
     ]
   'delimiters':
     'patterns': [
       {
         'match': ','
-        'name': 'punctuation.other.comma.go'
+        'name': 'punctuation.other.comma.tengo'
       }
       {
         'match': '\\.(?!\\.\\.)'
-        'name': 'punctuation.other.period.go'
+        'name': 'punctuation.other.period.tengo'
       }
       {
         'match': ':(?!=)'
-        'name': 'punctuation.other.colon.go'
+        'name': 'punctuation.other.colon.tengo'
       }
     ]
   'imports':
@@ -355,26 +355,26 @@
         'match': '((?!\\s+")[^\\s]*)?\\s*((")([^"]*)("))'
         'captures':
           '1':
-            'name': 'entity.alias.import.go'
+            'name': 'entity.alias.import.tengo'
           '2':
-            'name': 'string.quoted.double.go'
+            'name': 'string.quoted.double.tengo'
           '3':
-            'name': 'punctuation.definition.string.begin.go'
+            'name': 'punctuation.definition.string.begin.tengo'
           '4':
-            'name': 'entity.name.import.go'
+            'name': 'entity.name.import.tengo'
           '5':
-            'name': 'punctuation.definition.string.end.go'
+            'name': 'punctuation.definition.string.end.tengo'
       }
       {
         # Multiline import declarations
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.imports.begin.bracket.round.go'
+            'name': 'punctuation.definition.imports.begin.bracket.round.tengo'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.imports.end.bracket.round.go'
+            'name': 'punctuation.definition.imports.end.bracket.round.tengo'
         'patterns': [
           {
             'include': '#comments'
@@ -390,31 +390,31 @@
       {
         'comment': 'Flow control keywords'
         'match': '\\b(break|case|continue|default|defer|else|fallthrough|for|go|goto|if|range|return|select|switch)\\b'
-        'name': 'keyword.control.go'
+        'name': 'keyword.control.tengo'
       }
       {
         'match': '\\bchan\\b'
-        'name': 'keyword.channel.go'
+        'name': 'keyword.channel.tengo'
       }
       {
         'match': '\\bconst\\b'
-        'name': 'keyword.const.go'
+        'name': 'keyword.const.tengo'
       }
       {
         'match': '\\bfunc\\b'
-        'name': 'keyword.function.go'
+        'name': 'keyword.function.tengo'
       }
       {
         'match': '\\binterface\\b'
-        'name': 'keyword.interface.go'
+        'name': 'keyword.interface.tengo'
       }
       {
         'match': '\\bmap\\b'
-        'name': 'keyword.map.go'
+        'name': 'keyword.map.tengo'
       }
       {
         'match': '\\bstruct\\b'
-        'name': 'keyword.struct.go'
+        'name': 'keyword.struct.tengo'
       }
     ]
   'operators':
@@ -422,43 +422,43 @@
     'patterns': [
       {
         'match': '(\\*|&)(?=\\w)'
-        'name': 'keyword.operator.address.go'
+        'name': 'keyword.operator.address.tengo'
       }
       {
         'match': '<\\-'
-        'name': 'keyword.operator.channel.go'
+        'name': 'keyword.operator.channel.tengo'
       }
       {
         'match': '\\-\\-'
-        'name': 'keyword.operator.decrement.go'
+        'name': 'keyword.operator.decrement.tengo'
       }
       {
         'match': '\\+\\+'
-        'name': 'keyword.operator.increment.go'
+        'name': 'keyword.operator.increment.tengo'
       }
       {
         'match': '(==|!=|<=|>=|<(?!<)|>(?!>))'
-        'name': 'keyword.operator.comparison.go'
+        'name': 'keyword.operator.comparison.tengo'
       }
       {
         'match': '(&&|\\|\\||!)'
-        'name': 'keyword.operator.logical.go'
+        'name': 'keyword.operator.logical.tengo'
       }
       {
         'match': '(=|\\+=|\\-=|\\|=|\\^=|\\*=|/=|:=|%=|<<=|>>=|&\\^=|&=)'
-        'name': 'keyword.operator.assignment.go'
+        'name': 'keyword.operator.assignment.tengo'
       }
       {
         'match': '(\\+|\\-|\\*|/|%)'
-        'name': 'keyword.operator.arithmetic.go'
+        'name': 'keyword.operator.arithmetic.tengo'
       }
       {
         'match': '(&(?!\\^)|\\||\\^|&\\^|<<|>>)'
-        'name': 'keyword.operator.arithmetic.bitwise.go'
+        'name': 'keyword.operator.arithmetic.bitwise.tengo'
       }
       {
         'match': '\\.\\.\\.'
-        'name': 'keyword.operator.ellipsis.go'
+        'name': 'keyword.operator.ellipsis.tengo'
       }
     ]
   'runes':
@@ -467,20 +467,20 @@
         'begin': "'"
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.string.begin.go'
+            'name': 'punctuation.definition.string.begin.tengo'
         'end': "'"
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.string.end.go'
-        'name': 'string.quoted.rune.go'
+            'name': 'punctuation.definition.string.end.tengo'
+        'name': 'string.quoted.rune.tengo'
         'patterns': [
           {
             'match': "\\G(\\\\([0-7]{3}|[abfnrtv\\\\'\"]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})|.)(?=')"
-            'name': 'constant.other.rune.go'
+            'name': 'constant.other.rune.tengo'
           }
           {
             'match': "[^']+"
-            'name': 'invalid.illegal.unknown-rune.go'
+            'name': 'invalid.illegal.unknown-rune.tengo'
           }
         ]
       }
@@ -489,49 +489,49 @@
     'patterns': [
       {
         'match': '\\bbool\\b'
-        'name': 'storage.type.boolean.go'
+        'name': 'storage.type.boolean.tengo'
       }
       {
         'match': '\\bbyte\\b'
-        'name': 'storage.type.byte.go'
+        'name': 'storage.type.byte.tengo'
       }
       {
         'match': '\\berror\\b'
-        'name': 'storage.type.error.go'
+        'name': 'storage.type.error.tengo'
       }
       {
         'match': '\\b(complex(64|128)|float(32|64)|u?int(8|16|32|64)?)\\b'
-        'name': 'storage.type.numeric.go'
+        'name': 'storage.type.numeric.tengo'
       }
       {
         'match': '\\brune\\b'
-        'name': 'storage.type.rune.go'
+        'name': 'storage.type.rune.tengo'
       }
       {
         'match': '\\bstring\\b'
-        'name': 'storage.type.string.go'
+        'name': 'storage.type.string.tengo'
       }
       {
         'match': '\\buintptr\\b'
-        'name': 'storage.type.uintptr.go'
+        'name': 'storage.type.uintptr.tengo'
       }
     ]
   'string_escaped_char':
     'patterns': [
       {
         'match': '\\\\([0-7]{3}|[abfnrtv\\\\\'"]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})'
-        'name': 'constant.character.escape.go'
+        'name': 'constant.character.escape.tengo'
       }
       {
         'match': '\\\\[^0-7xuUabfnrtv\\\'"]'
-        'name': 'invalid.illegal.unknown-escape.go'
+        'name': 'invalid.illegal.unknown-escape.tengo'
       }
     ]
   'string_placeholder':
     'patterns': [
       {
         'match': '%(\\[\\d+\\])?([\\+#\\-0\\x20]{,2}((\\d+|\\*)?(\\.?(\\d+|\\*|(\\[\\d+\\])\\*?)?(\\[\\d+\\])?)?))?[vT%tbcdoqxXUbeEfFgGsp]'
-        'name': 'constant.other.placeholder.go'
+        'name': 'constant.other.placeholder.tengo'
       }
     ]
   'variables':
@@ -551,11 +551,11 @@
             'patterns': [
               {
                 'match': '\\d\\w*'
-                'name': 'invalid.illegal.identifier.go'
+                'name': 'invalid.illegal.identifier.tengo'
               }
               {
                 'match': '\\w+'
-                'name': 'variable.other.assignment.go'
+                'name': 'variable.other.assignment.tengo'
               }
               {
                 'include': '#delimiters'
@@ -585,11 +585,11 @@
             'patterns': [
               {
                 'match': '\\d\\w*'
-                'name': 'invalid.illegal.identifier.go'
+                'name': 'invalid.illegal.identifier.tengo'
               }
               {
                 'match': '\\w+'
-                'name': 'variable.other.declaration.go'
+                'name': 'variable.other.declaration.tengo'
               }
               {
                 'include': '#delimiters'
@@ -607,11 +607,11 @@
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.variables.begin.bracket.round.go'
+            'name': 'punctuation.definition.variables.begin.bracket.round.tengo'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.variables.end.bracket.round.go'
+            'name': 'punctuation.definition.variables.end.bracket.round.tengo'
         'patterns': [
           {
             'include': '$self'
